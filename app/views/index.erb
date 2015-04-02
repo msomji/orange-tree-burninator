@@ -1,0 +1,18 @@
+<% if @message %>
+ <%= @message %>
+<% end %>
+
+<% if session[:id].nil? %>
+  <form action="/users/login" method="post">
+    <input type="text" placeholder="Enter User Name" name="username">
+    <input type="text" placeholder="Enter Password" name="password">
+    <input type="submit" value="login">
+
+    <a href="/users/new">Sign Up</a>
+  </form>
+<% else %>
+
+<a href="/users/logout">Logout</a>
+
+<% end %>
+

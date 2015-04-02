@@ -1,0 +1,10 @@
+<h1>Wlcome to your Homepage, <%= @user.username %></h1>
+
+<h1>Your email is <%= @user.email %></h1>
+<h1>To update that, <a href="/users/<%= @user.id %>/edit">click here</a>, or head <a href="/">home</a>!</h1>
+
+<form action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+  <a href="/users/logout">Logout</a>
+</form>

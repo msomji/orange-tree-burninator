@@ -1,0 +1,10 @@
+<h1>edit your shit here!</h1>
+
+<form action="/users/<%= @user.id %>" method="POST">
+  <input type="hidden" name="_method" value="put">
+  <label>Username:</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>">
+  <label>Email:</label>
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+  <input type="submit" value="Update">
+</form>
