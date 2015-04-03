@@ -35,6 +35,7 @@ $(document).ready(function() {
 			if (this.legalStep(this.x, this.y - stepIncrement) && this.y > 0 && triggered) {
 				velocityY = -stepIncrement;
 				direction = "up";
+				$("#player").css({"background-image": "url(img/ruby_up.gif)"})
 			}
 			else {
 				velocityY = 0;
@@ -45,6 +46,7 @@ $(document).ready(function() {
 			if (this.legalStep(this.x, this.y + stepIncrement) && this.y < 568 && triggered) {
 				velocityY = stepIncrement;
 				direction = "down";
+				$("#player").css({"background-image": "url(img/ruby_down.gif)"})
 			}
 			else {
 				velocityY = 0;
@@ -55,6 +57,7 @@ $(document).ready(function() {
 			if (this.legalStep(this.x - stepIncrement, this.y) && this.x > 0 && triggered) {
 				velocityX = -stepIncrement;
 				direction = "left";
+				$("#player").css({"background-image": "url(img/ruby_left.gif)"})
 			}
 			else {
 				velocityX = 0;
@@ -65,6 +68,7 @@ $(document).ready(function() {
 			if (this.legalStep(this.x + stepIncrement, this.y) && this.x < 768 && triggered) {
 				velocityX = stepIncrement;
 				direction = "right";
+				$("#player").css({"background-image": "url(img/ruby_right.gif)"})
 			}
 			else {
 				velocityX = 0;
@@ -176,7 +180,6 @@ $(document).ready(function() {
 		this.update = function(triggered) {
 			for (var i = 0; i < 50; i++) {
 				if (orangeTrees[i].active && this.collidesWith(orangeTrees[i])) {
-					alert("hi")
 					if (Math.abs(this.x - orangeTrees[i].x) < orangeTrees[i].width)
 					{
 						if ((this.x < orangeTrees[i].x && velocityX > 0) || (this.x > orangeTrees[i].x && velocityX < 0))
@@ -228,18 +231,21 @@ $(document).ready(function() {
 		this.active = false;
 		this.number = number
 		var burning = false;
-		var burnTime = 10;
+		var burnTime;
+
 
 		this.burn = function() {
 			burning = true;
+			$("#orange-tree-" + this.number).css({"background-image": "url(img/orange_tree_burning.gif)"})
 		}
 
-		this.update = function() {
+		this.update = function(time) {
 			if (burning) {
-				burnTime -= 1;
+				console.log(time)
+				burnTime -= time;
 			}
-
 			if (burnTime <= 0) {
+				console.log("burntime is " + burnTime)
 				burning = false;
 				this.active = false;
 				$("#orange-tree-" + this.number).css({'visibility': "hidden"})
@@ -251,8 +257,8 @@ $(document).ready(function() {
 			this.x = x;
 			this.y = y;
 			burning = false;
-			burnTime = 10;
-			$("#orange-tree-" + this.number).css({'visibility': "visible", 'top': this.y + "px", 'left': this.x + "px"})
+			burnTime = 5000;
+			$("#orange-tree-" + this.number).css({'visibility': "visible", 'top': this.y + "px", 'left': this.x + "px", "background-image": "url(img/orange_tree.gif)"})
 		}
 	}
 	//end of orange tree
@@ -274,11 +280,10 @@ $(document).ready(function() {
 	for (var i = 0; i < 50; i++) {
 		var y = Math.floor(Math.random() * 568);
 		var x = Math.floor(Math.random() * 768);
-		orangeTrees[i] = new OrangeTree(x, y, i)
+		orangeTrees[i] = new OrangeTree(0, 0, i)
 		var div = document.createElement("div");
 		div.style.width = "32px";
 		div.style.height = "32px";
-		div.style.backgroundColor = "brown";
 		div.style.position = "absolute";
 		div.id = "orange-tree-" + i;
 
@@ -322,11 +327,17 @@ $(document).ready(function() {
 	var maxTimeUntilNextTree = 50;
 	var timeUntilNextTree = maxTimeUntilNextTree;
 	var player = new Player("bob", 0, 0);
+	var d = new Date();
+	var startTime = d.getTime();
+	var currentTime = startTime
 
 	function gameCycle(){
+		d = new Date();
+		timePassed = d.getTime() - currentTime;
+		currentTime = d.getTime();
 		player.update();
 		for (var i = 0; i < 50; i++) {
-			orangeTrees[i].update();
+			orangeTrees[i].update(timePassed);
 		}
 		if (timeUntilNextTree <= 0) {
 			maxTimeUntilNextTree -= 1;	

@@ -11,7 +11,6 @@
 	position: absolute;
 	width: 32px;
 	height: 32px;
-	background-color: red;
 	top: 0;
 	left: 0;
 
@@ -20,5 +19,4 @@
 .orange-tree {
 	width: 32px;
 	height: 32px;
-	background-color: brown;
 }
