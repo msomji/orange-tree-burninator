@@ -9,8 +9,9 @@
 
 get '/' do
 
-  @level_1 = Statistic.where(level: 1).order(time: :desc)
-  @level_2 = Statistic.where(level: 2).order(time: :desc)
+  @level_1 = Statistic.where(level: 1).order(time: :desc).limit(5)
+  @level_2 = Statistic.where(level: 2).order(time: :desc).limit(5)
+
   erb :index
 
 end
