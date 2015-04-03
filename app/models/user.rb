@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :statistics
+
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
