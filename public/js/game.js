@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
+	const MAX_NUMBER_OF_TREES	= 500
 	var orangeTrees = []
 
 
@@ -19,20 +20,8 @@ $(document).ready(function() {
 		this.downCollision = false;
 		this.settingFire = false;
 
-		this.legalStep = function(x, y) {
-			// for (var i = 0; i < 50; i++) {
-			// 	console.log("x: " + x + ", y: " + y + ", Ox: " + orangeTrees[i].x + ", Oy: " + orangeTrees[i].y)
-			// 	if (orangeTrees[i].active) {
-			// 		if (this.collidesWith(x, y, orangeTrees[i])){
-			// 			return false;					
-			// 		}
-			// 	}
-			// }
-			return true;
-		}
-
 		this.moveUp = function(triggered) {
-			if (this.legalStep(this.x, this.y - stepIncrement) && this.y > 0 && triggered) {
+			if (this.y > 0 && triggered) {
 				velocityY = -stepIncrement;
 				direction = "up";
 				$("#player").css({"background-image": "url(img/ruby_up.gif)"})
@@ -43,7 +32,7 @@ $(document).ready(function() {
 		}
 
 		this.moveDown = function(triggered) {
-			if (this.legalStep(this.x, this.y + stepIncrement) && this.y < 568 && triggered) {
+			if (this.y < 568 && triggered) {
 				velocityY = stepIncrement;
 				direction = "down";
 				$("#player").css({"background-image": "url(img/ruby_down.gif)"})
@@ -54,7 +43,7 @@ $(document).ready(function() {
 		}
 
 		this.moveLeft = function(triggered) {
-			if (this.legalStep(this.x - stepIncrement, this.y) && this.x > 0 && triggered) {
+			if (this.x > 0 && triggered) {
 				velocityX = -stepIncrement;
 				direction = "left";
 				$("#player").css({"background-image": "url(img/ruby_left.gif)"})
@@ -65,7 +54,7 @@ $(document).ready(function() {
 		}
 
 		this.moveRight = function(triggered) {
-			if (this.legalStep(this.x + stepIncrement, this.y) && this.x < 768 && triggered) {
+			if (this.x < 768 && triggered) {
 				velocityX = stepIncrement;
 				direction = "right";
 				$("#player").css({"background-image": "url(img/ruby_right.gif)"})
@@ -95,90 +84,8 @@ $(document).ready(function() {
 			}
 		}
 
-		// this.leftCollision = function() {
-		// 	for (var i = 0; i < 50; i++) {
-		// 		if (orangeTrees[i].active){
-		// 			if (this.x < orangeTrees[i].x + orangeTrees[i].width) {
-		// 				if (this.x > orangeTrees[i].x) {
-		// 					if (this.y < orangeTrees[i].y + orangeTrees[i].height && this.y > orangeTrees[i].y - orangeTrees[i].height){
-		// 						if (this.x <= orangeTrees[i].x + orangeTrees[i].width) {
-		// 							this.x = orangeTrees[i].x + orangeTrees[i].width
-		// 						}
-		// 						return true;
-		// 					}
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// 	return false;
-		// }
-
-		// this.rightCollision = function() {
-		// 	for (var i = 0; i < 50; i++) {
-		// 		if (orangeTrees[i].active){
-		// 			if (this.x + this.width > orangeTrees[i].x) {
-		// 				if (this.x + this.width < orangeTrees[i].x + orangeTrees[i].width) {
-		// 					if (this.y < orangeTrees[i].y + orangeTrees[i].height && this.y > orangeTrees[i].y - orangeTrees[i].height){
-		// 						if (this.x <= orangeTrees[i].x + orangeTrees[i].width) {
-		// 							this.x = orangeTrees[i].x + orangeTrees[i].width
-		// 						}
-		// 						return true;
-		// 					}
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// 	return false;
-		// }
-
-		// this.rightCollision = function() {
-		// 	for (var i = 0; i < 50; i++) {
-		// 		if (this.x < orangeTrees[i].x && this.x > orangeTrees[i].x + orangeTrees[i].width) {
-		// 			if (this.y > orangeTrees[i].y - orangeTrees[i].height && this.y < orangeTrees[i].y + orangeTrees[i].height) {
-		// 				return true;
-		// 			}
-		// 		}
-		// 	}
-		// 	return false
-		// }
-
-		// this.topCollision = function() {
-		// 	for (var i = 0; i < 50; i++) {
-		// 		if (this.y < orangeTrees[i].y && this.y > orangeTrees[i].y + orangeTrees[i].height) {
-		// 			//if (this.x > orangeTrees[i].x - orangeTrees[i].width && this.x < orangeTrees[i].x + orangeTrees[i].width) {
-		// 				return true;
-		// 			//}
-		// 		}
-		// 	}
-		// 	return false
-		// }
-
-		// this.bottomCollision = function() {
-		// 	for (var i = 0; i < 50; i++) {
-		// 		if (this.y > orangeTrees[i].y && this.y < orangeTrees[i].y + orangeTrees[i].height) {
-		// 			if (this.x > orangeTrees[i].x - orangeTrees[i].width && this.x < orangeTrees[i].x + orangeTrees[i].width) {
-		// 				return true;
-		// 			}
-		// 		}
-		// 	}
-		// 	return false
-		// }
-
-		// if (this.y < orangeTrees[i].y && this.y > orangeTrees[i].y + orangeTrees[i].height)
-
-		// this.collisionDetected = function() {
-		// 	for (var i = 0; i < 50; i ++) {
-		// 		if (this.x > orangeTrees[i].x - orangeTrees[i].width && this.x < orangeTrees[i].x + orangeTrees[i].width)
-		// 		// if (orangeTrees[i].x + orangeTrees[i].width > this.x && this.x > orangeTrees[i].x) {
-		// 		// 	if (this.y + this.height) {
-
-		// 		// 	}
-		// 		// }
-		// 	}
-		// }
-
 		this.update = function(triggered) {
-			for (var i = 0; i < 50; i++) {
+			for (var i = 0; i < MAX_NUMBER_OF_TREES; i++) {
 				if (orangeTrees[i].active && this.collidesWith(orangeTrees[i])) {
 					if (Math.abs(this.x - orangeTrees[i].x) < orangeTrees[i].width)
 					{
@@ -241,11 +148,9 @@ $(document).ready(function() {
 
 		this.update = function(time) {
 			if (burning) {
-				console.log(time)
 				burnTime -= time;
 			}
 			if (burnTime <= 0) {
-				console.log("burntime is " + burnTime)
 				burning = false;
 				this.active = false;
 				$("#orange-tree-" + this.number).css({'visibility': "hidden"})
@@ -264,12 +169,10 @@ $(document).ready(function() {
 	//end of orange tree
 
 	function spawnTree() {
-		// alert("i'm spawning a tree!")
 		var y = Math.floor(Math.random() * 71);
 		var x = Math.floor(Math.random() * 96);
-		for (var i = 0; i < 50; i++) {
+		for (var i = 0; i < MAX_NUMBER_OF_TREES; i++) {
 			if (!orangeTrees[i].active) {
-				// alert("here i am")
 				orangeTrees[i].spawn(x * 8, y * 8);
 				break;
 			}
@@ -277,7 +180,7 @@ $(document).ready(function() {
 	}
 
 	var field = document.getElementById("field");
-	for (var i = 0; i < 50; i++) {
+	for (var i = 0; i < MAX_NUMBER_OF_TREES; i++) {
 		var y = Math.floor(Math.random() * 568);
 		var x = Math.floor(Math.random() * 768);
 		orangeTrees[i] = new OrangeTree(0, 0, i)
@@ -327,8 +230,12 @@ $(document).ready(function() {
 	function gameIsLost() {
 		window.clearInterval(gameRunning);
 		$("#field").append("<div class='final_message'>THE ORANGE TREES HAVE CRUSHED YOUR SPIRIT.</div>");
-	}
 
+	$.ajax({
+		//I do ajax stuff here!
+	})
+	}
+	var score;
 	var maxTimeUntilNextTree = 30;
 	var timeUntilNextTree = maxTimeUntilNextTree;
 	var player = new Player("bob", 0, 0);
@@ -342,7 +249,7 @@ $(document).ready(function() {
 		currentTime = d.getTime();
 		player.update();
 		var activeCount = 0;
-		for (var i = 0; i < 50; i++) {
+		for (var i = 0; i < MAX_NUMBER_OF_TREES; i++) {
 			orangeTrees[i].update(timePassed);
 			if (orangeTrees[i].active) {
 				activeCount++;
@@ -357,6 +264,9 @@ $(document).ready(function() {
 			spawnTree();
 		}
 		timeUntilNextTree -= 1;
+		score = Math.floor((currentTime-startTime)/1000);
+		$("#score").html("Score: " + score);
+		$("#tree-count").html("Trees Left Until Death: " + (MAX_NUMBER_OF_TREES - activeCount));
 	}
 });
 
