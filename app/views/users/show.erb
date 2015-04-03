@@ -1,48 +1,55 @@
-<h1>Wlcome to your Homepage, <%= @user.username %></h1>
-
-<h1>Your email is <%= @user.email %></h1>
-<h1>To update that, <a href="/users/<%= @user.id %>/edit">click here</a>, or head <a href="/">home</a>!</h1>
+<h4>Wlcome to your Homepage, <%= @user.username %></h4>
 
 
 
 
-<form method="post" action="user/<%= @user.id %>/game">
-  <input type="submit" value="PLAY GAME!">
+<form class="game-button" method="post" action="/users/<%= @user.id %>/game">
+  <input class="play" type="submit" value="PLAY GAME!">
 </form>
 
-<h1>Below are your previous statistics!</h1>
-
-<table>
-  <caption>Level 1 LEADER BOARD</caption>
-  <tr>
-    <th>Lifetime</th>
-  </tr>
-  <% @level_1.each do |stat| %>
-  <tr>
-   <td><%= stat.time %></td>
-  </tr>
-    <% end %>
-
-</table>
-
-
-<table>
+<div class="show-leaderboards"> 
+  <table>
     <caption>Level 1 LEADER BOARD</caption>
-  <tr>
-    <th>Lifetime</th>
-  </tr>
-  <% @level_2.each do |stat| %>
-  <tr>
-   <td><%= stat.time %></td>
-  </tr>
-    <% end %>
+    <tr>
+      <th>Time of Death</th>
+    </tr>
+    <% @level_1.each do |stat| %>
+    <tr>
+     <td><%= stat.time %></td>
+    </tr>
+      <% end %>
+        <tr>
+     <td>some time</td>
+    </tr>
+    <tr>
+     <td>some other time</td>
+    </tr>
+  </table>
 
-</table>
 
+  <table>
+      <caption>Level 1 LEADER BOARD</caption>
+    <tr>
+      <th>Time of Death</th>
+    </tr>
+    <% @level_2.each do |stat| %>
+    <tr>
+     <td><%= stat.time %></td>
+    </tr>
+      <% end %>
+    <tr>
+     <td>some time</td>
+    </tr>
+    <tr>
+     <td>some other time</td>
+    </tr>
+  </table>
+</div>
 
-<form action="/users/<%= @user.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="DELETE ACCOUNT">
-</form>
-
+<div class="">
+  <form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="DELETE ACCOUNT">
+  </form>
+</div>
 

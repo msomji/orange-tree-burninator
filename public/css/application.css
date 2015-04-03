@@ -87,4 +87,34 @@ body {
   body .content {
     min-height: 800px; }
 
+.show-leaderboards {
+  width: 50%;
+  margin: auto; }
+  .show-leaderboards table {
+    border: 2px black solid;
+    width: 80%;
+    margin: 0 auto 20px; }
+    .show-leaderboards table caption {
+      font-weight: 600;
+      font-size: 20px;
+      padding: 15px; }
+    .show-leaderboards table td {
+      text-align: center;
+      padding: 5px; }
+    .show-leaderboards table th {
+      border: 2px black solid; }
+
+.play {
+  width: 60%;
+  height: 90px;
+  background-color: blue;
+  color: white;
+  font-size: 50px;
+  font-weight: 800; }
+
+.game-button {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
 /*# sourceMappingURL=application.css.map */
