@@ -1,0 +1,21 @@
+#field {
+	position: relative;
+	width: 800px;
+	height: 600px;
+	background-color: #c7f4cd;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#player {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	top: 0;
+	left: 0;
+}
+
+.orange-tree {
+	width: 32px;
+	height: 32px;
+}
