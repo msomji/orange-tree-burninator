@@ -26,4 +26,23 @@ nav {
     margin: 0px;
     color: red; }
 
+footer {
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 150px;
+  color: white; }
+  footer ul {
+    list-style-type: none; }
+    footer ul li {
+      display: inline;
+      padding-right: 15px;
+      padding-left: 0px; }
+  footer a {
+    text-decoration: none;
+    color: white; }
+
 /*# sourceMappingURL=application.css.map */
