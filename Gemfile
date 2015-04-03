@@ -15,7 +15,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'pry'
 gem 'shotgun'
-
+gem "heroku"
 gem 'bourbon'
 gem 'neat'
 
