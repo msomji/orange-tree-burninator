@@ -13,13 +13,35 @@
 
 <table>
   <tr>
-  <th>Level</th> <th>Time till DEATH</th></tr>
-<% @user.statistics.each do |stat| %>
+    <th>Level 1 LEADER BOARD</th>
+  </tr>
+  <tr>
 
-<tr>
-<td><%= stat.level %> </td>
-<td><%= stat.time %> </td>
-</tr>
 
-<% end %>
+    <th>Lifetime</th>
+  </tr>
+
+  <% @level_1.each do |stat| %>
+  <tr>
+
+   <td><%= stat.time %></td>
+  </tr>
+    <% end %>
+
+</table>
+
+
+<table>
+  <tr>
+    <th>Level 2 LEADER BOARD</th>
+  </tr>
+  <tr>
+    <th>Lifetime</th>
+  </tr>
+  <% @level_2.each do |stat| %>
+  <tr>
+   <td><%= stat.time %></td>
+  </tr>
+    <% end %>
+
 </table>
