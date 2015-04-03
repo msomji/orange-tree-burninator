@@ -1,58 +1,52 @@
-<% if @message %>
- <%= @message %>
-<% end %>
+<div class='index-container'>
+  <div class='index-title'>
+    <h2>Welcome to the <span>ORANGE TREE BURNINATOR</span></h2>
+  </div>
 
-<% if session[:id].nil? %>
-  <form action="/users/login" method="post">
-    <input type="text" placeholder="Enter User Name" name="username">
-    <input type="text" placeholder="Enter Password" name="password">
-    <input type="submit" value="login">
-
-    <a href="/users/new">Sign Up</a>
-  </form>
-<% else %>
-
-<a href="/users/logout">Logout</a>
-
-<% end %>
-
-<table>
-  <tr>
-    <th>Level 1 LEADER BOARD</th>
-  </tr>
-  <tr>
-    <th>User Name</th>
-
-    <th>Lifetime</th>
-  </tr>
-
-  <% @level_1.each do |stat| %>
-  <tr>
-    <td><%= stat.user.username %> </td>
-
-   <td><%= stat.time %></td>
-  </tr>
-    <% end %>
-
-</table>
-
-
-<table>
-  <tr>
-    <th>Level 2 LEADER BOARD</th>
-  </tr>
-  <tr>
-    <th>User Name</th>
-
-    <th>Lifetime</th>
-  </tr>
-
-  <% @level_2.each do |stat| %>
-  <tr>
-    <td><%= stat.user.username %> </td>
-
-   <td><%= stat.time %></td>
-  </tr>
-    <% end %>
-
-</table>
+  <div class='index-body'>
+    <div class='index-leaderboards'>
+      <table>
+        <caption>Level 1 LEADER BOARD</caption>
+        <tr>
+          <th>User Name</th>
+          <th>Lifetime</th>
+        </tr>
+        <% @level_1.each do |stat| %>
+          <tr>
+            <td><%= stat.user.username %> </td>
+            <td><%= stat.time %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>Maisam</td>
+          <td>123</td>
+        </tr>
+        <tr>
+          <td>Jamn</td>
+          <td>546545</td>
+        </tr>
+      </table>
+      <table>
+        <caption>Level 2 LEADER BOARD</caption>
+        <tr>
+          <th>User Name</th>
+          <th>Lifetime</th>
+        </tr>
+        <% @level_2.each do |stat| %>
+          <tr>
+            <td><%= stat.user.username %> </td>
+            <td><%= stat.time %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>Maisam</td>
+          <td>123</td>
+        </tr>
+        <tr>
+          <td>Jamn</td>
+          <td>546545</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

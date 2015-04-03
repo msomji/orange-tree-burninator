@@ -45,4 +45,42 @@ footer {
     text-decoration: none;
     color: white; }
 
+.index-container {
+  width: 80%;
+  margin: auto;
+  background-color: #c7f4cd; }
+  .index-container .index-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .index-container .index-title h2 {
+      font-size: 50px;
+      color: black; }
+      .index-container .index-title h2 span {
+        color: red; }
+  .index-container .index-body {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px; }
+    .index-container .index-body .index-leaderboards {
+      width: 100%; }
+      .index-container .index-body .index-leaderboards table {
+        margin: 20px;
+        border: 2px black solid;
+        width: 80%;
+        margin: auto; }
+        .index-container .index-body .index-leaderboards table caption {
+          font-weight: 600;
+          font-size: 20px;
+          padding: 15px; }
+        .index-container .index-body .index-leaderboards table td {
+          text-align: center;
+          padding: 5px; }
+
+body {
+  background-color: #c7f4cd; }
+  body .content {
+    min-height: 800px; }
+
 /*# sourceMappingURL=application.css.map */
