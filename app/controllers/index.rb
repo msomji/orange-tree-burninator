@@ -39,6 +39,9 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
+  @level_1 = Statistic.where(user_id: @user.id, level: 1).order(time: :desc).limit(20)
+  @level_2 = Statistic.where(user_id: @user.id, level: 2).order(time: :desc).limit(20)
+
   erb :"users/show"
 end
 
