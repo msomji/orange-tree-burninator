@@ -1,0 +1,53 @@
+.index-container {
+  width: 80%;
+  margin: auto;
+  background-color: #c7f4cd;
+
+  .index-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-size: 50px;
+      color: black;
+      span {
+        color: red;
+      }
+    }
+  }
+  .index-body {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    .index-leaderboards {
+      width: 100%;
+
+      table {
+        border: 2px black solid;
+        width: 80%;
+        margin: 0 auto 20px;
+
+        caption {
+          font-weight: 600;
+          font-size: 20px;
+          padding: 15px;
+        }
+
+        td {
+          text-align: center;
+          padding: 5px;
+        }
+      }
+    }
+
+    .ruby-img {
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/ruby_down.gif");
+      margin: auto;
+    }
+  }
+}

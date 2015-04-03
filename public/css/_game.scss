@@ -1,0 +1,23 @@
+$picture-size: 32px;
+
+#field {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-color: green;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#player {
+  position: absolute;
+  width: $picture-size;
+  height: $picture-size;
+  top: 0;
+  left: 0;
+}
+
+.orange-tree {
+  width: $picture-size;
+  height: $picture-size;
+}

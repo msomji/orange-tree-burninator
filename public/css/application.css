@@ -1,49 +1,120 @@
-#field {
-	position: relative;
-	width: 800px;
-	height: 600px;
-	background-color: #c7f4cd;
-	margin: auto;
-	margin-top: 20px;
-}
+html {
+  box-sizing: border-box; }
 
-#player {
-	position: absolute;
-	width: 32px;
-	height: 32px;
-	top: 0;
-	left: 0;
+*, *::after, *::before {
+  box-sizing: inherit; }
 
-}
+nav {
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 150px; }
+  nav a {
+    text-decoration: none;
+    color: white; }
+  nav .nav-links ul li {
+    display: inline;
+    padding-right: 15px;
+    list-style-type: none;
+    padding-left: 0px; }
+  nav h2 {
+    font-weight: 800;
+    font-size: 40px;
+    margin: 0px;
+    color: red; }
 
-.final_message {
-	position: absolute;
-	top: 40%;
-	color: red;
-	text-align: center;
-	font-size: 72px;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+footer {
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 150px;
+  color: white; }
+  footer ul {
+    list-style-type: none; }
+    footer ul li {
+      display: inline;
+      padding-right: 15px;
+      padding-left: 0px; }
+  footer a {
+    text-decoration: none;
+    color: white; }
 
-#score {
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	color: blue;
-}
+.index-container {
+  width: 80%;
+  margin: auto;
+  background-color: #c7f4cd; }
+  .index-container .index-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .index-container .index-title h2 {
+      font-size: 50px;
+      color: black; }
+      .index-container .index-title h2 span {
+        color: red; }
+  .index-container .index-body {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px; }
+    .index-container .index-body .index-leaderboards {
+      width: 100%; }
+      .index-container .index-body .index-leaderboards table {
+        border: 2px black solid;
+        width: 80%;
+        margin: 0 auto 20px; }
+        .index-container .index-body .index-leaderboards table caption {
+          font-weight: 600;
+          font-size: 20px;
+          padding: 15px; }
+        .index-container .index-body .index-leaderboards table td {
+          text-align: center;
+          padding: 5px; }
+    .index-container .index-body .ruby-img {
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/ruby_down.gif");
+      margin: auto; }
 
-#tree-count {
-	position: absolute;
-	top: 20px;
-	left: 200px;
-	color: blue;
-	z-index: 100;
-}
+body {
+  background-color: #c7f4cd; }
+  body .content {
+    min-height: 800px; }
 
-#resign {
-	margin: auto;
-}
+.show-leaderboards {
+  width: 50%;
+  margin: auto; }
+  .show-leaderboards table {
+    border: 2px black solid;
+    width: 80%;
+    margin: 0 auto 20px; }
+    .show-leaderboards table caption {
+      font-weight: 600;
+      font-size: 20px;
+      padding: 15px; }
+    .show-leaderboards table td {
+      text-align: center;
+      padding: 5px; }
+    .show-leaderboards table th {
+      border: 2px black solid; }
+
+.play {
+  width: 60%;
+  height: 90px;
+  background-color: blue;
+  color: white;
+  font-size: 50px;
+  font-weight: 800; }
+
+.game-button {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+/*# sourceMappingURL=application.css.map */

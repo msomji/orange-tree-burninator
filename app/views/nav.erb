@@ -1,0 +1,18 @@
+<nav>
+  <div class='nav-title'>
+    <h2>The Orange Tree Burninator</h2>
+  </div>
+  <div class='nav-links'>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if session[:id] %>
+        <li><a href="/users/<%= session[:id] %>">My Home</a></li>
+        <li><a href="/users/logout">Logout</a></li>
+        <li><a href="/users/<%= @user.id %>/edit">Update</a></li>
+      <% else %>
+        <li><a href="/users/login">Login</a></li>
+        <li><a href="/users/new">Register</a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

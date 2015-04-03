@@ -16,6 +16,9 @@ gem 'bcrypt'
 gem 'pry'
 gem 'shotgun'
 
+gem 'bourbon'
+gem 'neat'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

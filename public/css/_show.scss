@@ -1,0 +1,40 @@
+.show-leaderboards {
+      width: 50%;
+      margin: auto;
+
+      table {
+        border: 2px black solid;
+        width: 80%;
+        margin: 0 auto 20px;
+
+        caption {
+          font-weight: 600;
+          font-size: 20px;
+          padding: 15px;
+        }
+
+        td {
+          text-align: center;
+          padding: 5px;
+
+        }
+        th {
+          border: 2px black solid;
+        }
+      }
+    }
+
+.play {
+  width: 60%;
+  height: 90px;
+  background-color: blue;
+  color: white;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.game-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
