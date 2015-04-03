@@ -16,6 +16,10 @@ get '/' do
 
 end
 
+get "/users/login" do
+  erb :"users/login"
+end
+
 post '/users/login' do
   user = User.authenticate(params[:username], params[:password])
 

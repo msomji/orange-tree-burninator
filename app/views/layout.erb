@@ -18,6 +18,10 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <%= erb :nav %>
+  <div class='content'>
+    <%= yield %>
+  </div>
+  <%= erb :footer %>
 </body>
 </html>
