@@ -8,7 +8,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :statistics do |t|
       t.references :user
       t.integer :level
-      t.time :time
+      t.integer :time
     end
   end
 end

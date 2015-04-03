@@ -1,8 +1,7 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
-	const MAX_NUMBER_OF_TREES	= 3
+	const MAX_NUMBER_OF_TREES	= 220
 	var orangeTrees = []
-
 
 	var Player = function(name, posX, posY) {
 		this.x = posX;
@@ -239,24 +238,11 @@ $(document).ready(function() {
 				method: "post",
 				data: {
 					user_id: user_id,
-					difficulty: "1",
+					difficulty: 1,
 					time: score
 				}
 			});
-			// $.ajax({
-			// 	url: 
-			// })
 		})
-
-	// $.ajax({
-	// 	url: "/game",
-	// 	method: "post",
-	// 	data: {
-	// 		score: score,
-	// 		user: "1",
-	// 		difficulty: "1"
-	// 	}
-	// });
 
 	}
 	var score;

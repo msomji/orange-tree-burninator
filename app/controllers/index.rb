@@ -1,12 +1,3 @@
-# UNSECURE_ROUTES = ['/', '/users/new', "/users/logout", '/users/login' ]
-# # enable :sessions
-
-# before do
-#  unless UNSECURE_ROUTES.include?(request.path_info)
-#    redirect '/' unless session[:id] == params[:id] && authorize
-#  end
-# end
-
 get '/' do
 
   @level_1 = Statistic.where(level: 1).order(time: :desc).limit(5)

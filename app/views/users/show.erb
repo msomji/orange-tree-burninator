@@ -1,9 +1,6 @@
 <h4>Wlcome to your Homepage, <%= @user.username %></h4>
 
-
-
-
-<form class="game-button" method="post" action="/users/<%= @user.id %>/game">
+<form class="game-button" method="GET" action="/users/<%= @user.id %>/game">
   <input class="play" type="submit" value="PLAY GAME!">
 </form>
 
