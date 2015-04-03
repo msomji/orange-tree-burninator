@@ -8,7 +8,6 @@
       <% if session[:id] %>
         <li><a href="/users/<%= session[:id] %>">My Home</a></li>
         <li><a href="/users/logout">Logout</a></li>
-        <li><a href="/users/<%= @user.id %>/edit">Update</a></li>
       <% else %>
         <li><a href="/users/login">Login</a></li>
         <li><a href="/users/new">Register</a></li>

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
-	const MAX_NUMBER_OF_TREES	= 220
+	const MAX_NUMBER_OF_TREES	= 2
 	var orangeTrees = []
 
 	var Player = function(name, posX, posY) {
@@ -23,7 +23,7 @@ $(document).ready(function() {
 			if (this.y > 0 && triggered) {
 				velocityY = -stepIncrement;
 				direction = "up";
-				$("#player").css({"background-image": "url(img/ruby_up.gif)"})
+				$("#player").css({"background-image": "url(/img/ruby_up.gif)"})
 			}
 			else {
 				velocityY = 0;
@@ -34,7 +34,7 @@ $(document).ready(function() {
 			if (this.y < 568 && triggered) {
 				velocityY = stepIncrement;
 				direction = "down";
-				$("#player").css({"background-image": "url(img/ruby_down.gif)"})
+				$("#player").css({"background-image": "url(/img/ruby_down.gif)"})
 			}
 			else {
 				velocityY = 0;
@@ -45,7 +45,7 @@ $(document).ready(function() {
 			if (this.x > 0 && triggered) {
 				velocityX = -stepIncrement;
 				direction = "left";
-				$("#player").css({"background-image": "url(img/ruby_left.gif)"})
+				$("#player").css({"background-image": "url(/img/ruby_left.gif)"})
 			}
 			else {
 				velocityX = 0;
@@ -56,7 +56,7 @@ $(document).ready(function() {
 			if (this.x < 768 && triggered) {
 				velocityX = stepIncrement;
 				direction = "right";
-				$("#player").css({"background-image": "url(img/ruby_right.gif)"})
+				$("#player").css({"background-image": "url(/img/ruby_right.gif)"})
 			}
 			else {
 				velocityX = 0;
@@ -142,7 +142,7 @@ $(document).ready(function() {
 
 		this.burn = function() {
 			burning = true;
-			$("#orange-tree-" + this.number).css({"background-image": "url(img/orange_tree_burning.gif)"})
+			$("#orange-tree-" + this.number).css({"background-image": "url(/img/orange_tree_burning.gif)"})
 		}
 
 		this.update = function(time) {
@@ -162,7 +162,7 @@ $(document).ready(function() {
 			this.y = y;
 			burning = false;
 			burnTime = 5000;
-			$("#orange-tree-" + this.number).css({'visibility': "visible", 'top': this.y + "px", 'left': this.x + "px", "background-image": "url(img/orange_tree.gif)"})
+			$("#orange-tree-" + this.number).css({'visibility': "visible", 'top': this.y + "px", 'left': this.x + "px", "background-image": "url(/img/orange_tree.gif)"})
 		}
 	}
 	//end of orange tree
@@ -232,14 +232,16 @@ $(document).ready(function() {
 
 		$(document).on('click', '.final_message', function(event){
 			var user_id = $("#player").attr('class');
-			console.log(user_id);
-			var request = $.ajax({
+			$.ajax({
 				url: "/game",
 				method: "post",
 				data: {
 					user_id: user_id,
 					difficulty: 1,
-					time: score
+					time: score,
+					success: function() {
+						window.location.replace('/users/' + user_id)
+					}
 				}
 			});
 		})
@@ -249,7 +251,7 @@ $(document).ready(function() {
 	var maxTimeUntilNextTree = 30;
 	var timeUntilNextTree = maxTimeUntilNextTree;
 	var player = new Player("bob", 0, 0);
-	$("#player").css({"background-image": "url(img/ruby_down.gif)"})
+	$("#player").css({"background-image": "url(/img/ruby_down.gif)"})
 	var d = new Date();
 	var startTime = d.getTime();
 	var currentTime = startTime

@@ -1,7 +1,7 @@
 get "/users/:id/game" do
   @user = User.find_by_id(params[:id])
 
-	erb :game	
+	erb :game
 end
 
 post "/game" do
@@ -10,3 +10,4 @@ post "/game" do
 
   redirect "/users/#{user.id}"
 end
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
