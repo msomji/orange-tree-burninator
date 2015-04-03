@@ -3,27 +3,22 @@
 <h1>Your email is <%= @user.email %></h1>
 <h1>To update that, <a href="/users/<%= @user.id %>/edit">click here</a>, or head <a href="/">home</a>!</h1>
 
-<form action="/users/<%= @user.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-  <a href="/users/logout">Logout</a>
+
+
+
+<form method="post" action="user/<%= @user.id %>/game">
+  <input type="submit" value="PLAY GAME!">
 </form>
 
 <h1>Below are your previous statistics!</h1>
 
 <table>
+  <caption>Level 1 LEADER BOARD</caption>
   <tr>
-    <th>Level 1 LEADER BOARD</th>
-  </tr>
-  <tr>
-
-
     <th>Lifetime</th>
   </tr>
-
   <% @level_1.each do |stat| %>
   <tr>
-
    <td><%= stat.time %></td>
   </tr>
     <% end %>
@@ -32,9 +27,7 @@
 
 
 <table>
-  <tr>
-    <th>Level 2 LEADER BOARD</th>
-  </tr>
+    <caption>Level 1 LEADER BOARD</caption>
   <tr>
     <th>Lifetime</th>
   </tr>
@@ -45,3 +38,11 @@
     <% end %>
 
 </table>
+
+
+<form action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="DELETE ACCOUNT">
+</form>
+
+

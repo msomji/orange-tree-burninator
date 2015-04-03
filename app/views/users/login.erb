@@ -1,11 +1,9 @@
 <% if @message %>
- <%= @message %>
+ <h3><%= @message %></h3>
 <% end %>
 
 <form action="/users/login" method="post">
   <input type="text" placeholder="Enter User Name" name="username">
   <input type="text" placeholder="Enter Password" name="password">
   <input type="submit" value="login">
-
-  <a href="/users/new">Sign Up</a>
 </form>
