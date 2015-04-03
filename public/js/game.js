@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
-	const MAX_NUMBER_OF_TREES	= 500
+	const MAX_NUMBER_OF_TREES	= 3
 	var orangeTrees = []
 
 
@@ -231,14 +231,39 @@ $(document).ready(function() {
 		window.clearInterval(gameRunning);
 		$("#field").append("<div class='final_message'>THE ORANGE TREES HAVE CRUSHED YOUR SPIRIT.</div>");
 
-	$.ajax({
-		//I do ajax stuff here!
-	})
+		$(document).on('click', '.final_message', function(event){
+			var user_id = $("#player").attr('class');
+			console.log(user_id);
+			var request = $.ajax({
+				url: "/game",
+				method: "post",
+				data: {
+					user_id: user_id,
+					difficulty: "1",
+					time: score
+				}
+			});
+			// $.ajax({
+			// 	url: 
+			// })
+		})
+
+	// $.ajax({
+	// 	url: "/game",
+	// 	method: "post",
+	// 	data: {
+	// 		score: score,
+	// 		user: "1",
+	// 		difficulty: "1"
+	// 	}
+	// });
+
 	}
 	var score;
 	var maxTimeUntilNextTree = 30;
 	var timeUntilNextTree = maxTimeUntilNextTree;
 	var player = new Player("bob", 0, 0);
+	$("#player").css({"background-image": "url(img/ruby_down.gif)"})
 	var d = new Date();
 	var startTime = d.getTime();
 	var currentTime = startTime
