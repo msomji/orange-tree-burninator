@@ -26,10 +26,9 @@
       width: 100%;
 
       table {
-        margin: 20px;
         border: 2px black solid;
         width: 80%;
-        margin: auto;
+        margin: 0 auto 20px;
 
         caption {
           font-weight: 600;
@@ -42,6 +41,13 @@
           padding: 5px;
         }
       }
+    }
+
+    .ruby-img {
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/ruby_down.gif");
+      margin: auto;
     }
   }
 }

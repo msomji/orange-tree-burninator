@@ -66,10 +66,9 @@ footer {
     .index-container .index-body .index-leaderboards {
       width: 100%; }
       .index-container .index-body .index-leaderboards table {
-        margin: 20px;
         border: 2px black solid;
         width: 80%;
-        margin: auto; }
+        margin: 0 auto 20px; }
         .index-container .index-body .index-leaderboards table caption {
           font-weight: 600;
           font-size: 20px;
@@ -77,6 +76,11 @@ footer {
         .index-container .index-body .index-leaderboards table td {
           text-align: center;
           padding: 5px; }
+    .index-container .index-body .ruby-img {
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/ruby_down.gif");
+      margin: auto; }
 
 body {
   background-color: #c7f4cd; }
