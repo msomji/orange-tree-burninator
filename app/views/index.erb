@@ -16,3 +16,43 @@
 
 <% end %>
 
+<table>
+  <tr>
+    <th>Level 1 LEADER BOARD</th>
+  </tr>
+  <tr>
+    <th>User Name</th>
+
+    <th>Lifetime</th>
+  </tr>
+
+  <% @level_1.each do |stat| %>
+  <tr>
+    <td><%= stat.user.username %> </td>
+
+   <td><%= stat.time %></td>
+  </tr>
+    <% end %>
+
+</table>
+
+
+<table>
+  <tr>
+    <th>Level 2 LEADER BOARD</th>
+  </tr>
+  <tr>
+    <th>User Name</th>
+
+    <th>Lifetime</th>
+  </tr>
+
+  <% @level_2.each do |stat| %>
+  <tr>
+    <td><%= stat.user.username %> </td>
+
+   <td><%= stat.time %></td>
+  </tr>
+    <% end %>
+
+</table>

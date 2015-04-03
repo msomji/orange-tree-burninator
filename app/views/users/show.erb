@@ -8,3 +8,18 @@
   <input type="submit" value="Delete">
   <a href="/users/logout">Logout</a>
 </form>
+
+<h1>Below are your previous statistics!</h1>
+
+<table>
+  <tr>
+  <th>Level</th> <th>Time till DEATH</th></tr>
+<% @user.statistics.each do |stat| %>
+
+<tr>
+<td><%= stat.level %> </td>
+<td><%= stat.time %> </td>
+</tr>
+
+<% end %>
+</table>
