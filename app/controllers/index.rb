@@ -1,5 +1,18 @@
+# UNSECURE_ROUTES = ['/', '/users/new', "/users/logout", '/users/login' ]
+# # enable :sessions
+
+# before do
+#  unless UNSECURE_ROUTES.include?(request.path_info)
+#    redirect '/' unless session[:id] == params[:id] && authorize
+#  end
+# end
+
 get '/' do
+
+  @level_1 = Statistic.where(level: 1).order(time: :desc)
+  @level_2 = Statistic.where(level: 2).order(time: :desc)
   erb :index
+
 end
 
 post '/users/login' do
@@ -34,8 +47,6 @@ post '/users' do
 
   redirect "/users/#{@user.id}"
 end
-
-
 
 get "/users/:id/edit" do
   @user = User.find(params[:id])
