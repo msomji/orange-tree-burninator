@@ -324,7 +324,12 @@ $(document).ready(function() {
 		movementKey[event.which]();
 	});
 
-	var maxTimeUntilNextTree = 50;
+	function gameIsLost() {
+		window.clearInterval(gameRunning);
+		$("#field").append("<div class='final_message'>THE ORANGE TREES HAVE CRUSHED YOUR SPIRIT.</div>");
+	}
+
+	var maxTimeUntilNextTree = 30;
 	var timeUntilNextTree = maxTimeUntilNextTree;
 	var player = new Player("bob", 0, 0);
 	var d = new Date();
@@ -336,8 +341,15 @@ $(document).ready(function() {
 		timePassed = d.getTime() - currentTime;
 		currentTime = d.getTime();
 		player.update();
+		var activeCount = 0;
 		for (var i = 0; i < 50; i++) {
 			orangeTrees[i].update(timePassed);
+			if (orangeTrees[i].active) {
+				activeCount++;
+			}
+		}
+		if (activeCount == orangeTrees.length) {
+			gameIsLost();
 		}
 		if (timeUntilNextTree <= 0) {
 			maxTimeUntilNextTree -= 1;	
@@ -348,5 +360,3 @@ $(document).ready(function() {
 	}
 });
 
-// document.onkeydown = keyPressed;
-// document.onkeyup = keyReleased;
