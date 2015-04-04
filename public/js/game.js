@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
-	const MAX_NUMBER_OF_TREES	= 200
+	const MAX_NUMBER_OF_TREES	= 220
 	var orangeTrees = []
 
 	var Player = function(name, posX, posY) {
