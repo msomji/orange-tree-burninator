@@ -10,23 +10,9 @@
         <caption>Level 1 LEADER BOARD</caption>
         <tr>
           <th>User Name</th>
-          <th>Lifetime</th>
+          <th>Lifetime (Seconds)</th>
         </tr>
         <% @level_1.each do |stat| %>
-          <tr>
-            <td><%= stat.user.username %> </td>
-            <td><%= stat.time %></td>
-          </tr>
-        <% end %>
-      </table>
-      <div class='ruby-img'></div>
-      <table>
-        <caption>Level 2 LEADER BOARD</caption>
-        <tr>
-          <th>User Name</th>
-          <th>Lifetime</th>
-        </tr>
-        <% @level_2.each do |stat| %>
           <tr>
             <td><%= stat.user.username %> </td>
             <td><%= stat.time %></td>

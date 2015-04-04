@@ -7,20 +7,22 @@ get '/' do
 
 end
 
-get "/users/login" do
-  erb :"users/login"
+post '/users' do
+  @user = User.create(params[:user])
+  if @user.id.nil?
+    logger.info(@user)
+    @message = "oh oh that user name has been taken"
+    erb :"users/new"
+  else
+    logger.info(@user)
+    session[:id] = @user.id
+    redirect "/users/#{@user.id}"
+  end
 end
 
-post '/users/login' do
-  user = User.authenticate(params[:username], params[:password])
 
-  if user
-    session[:id] = user.id
-    redirect "/users/#{user.id}"
-  else
-    @message = "oh oh, somthing went wrong! try again"
-    erb :index
-  end
+get "/users/login" do
+  erb :"users/login"
 end
 
 get "/users/logout" do
@@ -32,34 +34,57 @@ get '/users/new' do
   erb :'/users/new'
 end
 
+post '/users/login' do
+  @user = User.authenticate(params[:username], params[:password])
+
+  if @user
+    session[:id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    @message = "oh oh, somthing went wrong! try again"
+    erb :index
+  end
+end
+
 get '/users/:id' do
   @user = User.find(params[:id])
-  @level_1 = Statistic.where(user_id: @user.id, level: 1).order(time: :desc).limit(20)
-  @level_2 = Statistic.where(user_id: @user.id, level: 2).order(time: :desc).limit(20)
+  if authorize(@user)
+    @level_1 = Statistic.where(user_id: @user.id, level: 1).order(time: :desc).limit(20)
+    @level_2 = Statistic.where(user_id: @user.id, level: 2).order(time: :desc).limit(20)
 
-  erb :"users/show"
+    erb :"users/show"
+  else
+    redirect "/"
+  end
 end
 
-post '/users' do
-  @user = User.create(params[:user])
-  session[:id] = @user.id
-
-  redirect "/users/#{@user.id}"
-end
 
 get "/users/:id/edit" do
   @user = User.find(params[:id])
-  erb :"users/edit"
+  if authorize(@user)
+    erb :"users/edit"
+  else
+    redirect "/"
+  end
 end
 
 put "/users/:id" do
   @user = User.find(params[:id])
-  @user.update(params[:user])
-  erb :"users/show"
+  if authorize(@user)
+    @user.update(params[:user])
+    erb :"users/show"
+  else
+    redirect "/"
   end
+
+end
 
 delete "/users/:id" do
   @user = User.find(params[:id])
-  @user.destroy
-  redirect "/"
+  if authorize(@user)
+    @user.destroy
+    redirect "/"
+  else
+    redirect "/"
+  end
 end

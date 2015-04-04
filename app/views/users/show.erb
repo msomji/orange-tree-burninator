@@ -1,4 +1,4 @@
-<h4>Wlcome to your Homepage, <%= @user.username %></h4>
+<h4>Welcome to your Homepage, <%= @user.username %></h4>
 
 <form class="game-button" method="GET" action="/users/<%= @user.id %>/game">
   <input class="play" type="submit" value="PLAY GAME!">
@@ -8,27 +8,13 @@
   <table>
     <caption>Level 1 LEADER BOARD</caption>
     <tr>
-      <th>Time of Death</th>
+      <th>Time of Death (Seconds)</th>
     </tr>
     <% @level_1.each do |stat| %>
     <tr>
      <td><%= stat.time %></td>
     </tr>
       <% end %>
-  </table>
-
-
-  <table>
-      <caption>Level 1 LEADER BOARD</caption>
-    <tr>
-      <th>Time of Death</th>
-    </tr>
-    <% @level_2.each do |stat| %>
-    <tr>
-     <td><%= stat.time %></td>
-    </tr>
-      <% end %>
-    <tr>
   </table>
 </div>
 

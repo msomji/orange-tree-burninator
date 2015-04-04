@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
  include BCrypt
 
   def self.authenticate(username,password_attempt)
@@ -28,11 +27,14 @@ class User < ActiveRecord::Base
     self.p_hash = Password.create(new_password)
   end
 
-#   def self.authenticate(username, password_attempt)
-#     user = User.find_by(username: username)
-#     user if user && user.password == password_attempt
-#   end
-# end
+  def self.authenticate(username, password_attempt)
+    user = User.find_by(username: username)
+
+   if user && user.password == password_attempt
+      user
+    end
+  end
+
 
 
 end

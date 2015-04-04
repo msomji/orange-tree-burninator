@@ -1,7 +1,9 @@
+<% if @message %>
+ <h3><%= @message %></h3>
+<% end %>
 
 <form action="/users" method="post">
   <input type="text" placeholder="Enter User Name" name="user[username]">
-  <input type="text" placeholder="Enter Email" name="user[email]">
-  <input type="text" placeholder="Enter Password" name="user[password]">
+  <input type="password" placeholder="Enter Password" name="user[password]">
   <input type="submit" value="CREATE!">
 </form>
