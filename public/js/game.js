@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	gameRunning = setInterval(function () {gameCycle()}, 100);
-	const MAX_NUMBER_OF_TREES	= 2
+	const MAX_NUMBER_OF_TREES	= 200
 	var orangeTrees = []
 
 	var Player = function(name, posX, posY) {
@@ -38,7 +38,7 @@ $(document).ready(function() {
 			}
 			else {
 				velocityY = 0;
-			}			
+			}
 		}
 
 		this.moveLeft = function(triggered) {
@@ -49,7 +49,7 @@ $(document).ready(function() {
 			}
 			else {
 				velocityX = 0;
-			}			
+			}
 		}
 
 		this.moveRight = function(triggered) {
@@ -60,7 +60,7 @@ $(document).ready(function() {
 			}
 			else {
 				velocityX = 0;
-			}			
+			}
 		}
 
 		this.startFire = function(triggered) {
@@ -106,7 +106,7 @@ $(document).ready(function() {
 					}
 				}
 			}
-			
+
 
 			this.y += velocityY;
 			this.x += velocityX;
@@ -272,8 +272,8 @@ $(document).ready(function() {
 			gameIsLost();
 		}
 		if (timeUntilNextTree <= 0) {
-			maxTimeUntilNextTree -= 1;	
-			timeUntilNextTree = maxTimeUntilNextTree;	
+			maxTimeUntilNextTree -= 1;
+			timeUntilNextTree = maxTimeUntilNextTree;
 			spawnTree();
 		}
 		timeUntilNextTree -= 1;
